@@ -220,7 +220,7 @@
   .hero-image-wrap::after {
     content: '';
     position: absolute;
-    width: 380px; height: 380px;
+    width: 480px; height: 480px;
     border: 2px dashed rgba(107,158,107,0.35);
     border-radius: 50%;
     z-index: 2;
@@ -228,16 +228,20 @@
   }
 
   .hero-photo {
-    width: 360px;
-    height: 360px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center center;
     position: relative;
     z-index: 1;
     box-shadow: 0 24px 60px rgba(42,33,24,0.2);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    image-rendering: auto;
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    filter: contrast(1.02) brightness(1.01);
   }
 
   .hero-tag {
