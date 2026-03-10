@@ -65,6 +65,30 @@
   }
   .nav-links a:hover { color: var(--terracotta); }
 
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--sage);
+    border-radius: 3px;
+    transition: all 0.3s;
+  }
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
   /* ---- HERO ---- */
   .hero {
     min-height: 100vh;
@@ -211,7 +235,8 @@
   .hero-image-wrap::before {
     content: '';
     position: absolute;
-    width: 520px; height: 520px;
+    width: 520px; 
+    height: 520px;
     background: var(--sage-pale);
     border-radius: 50%;
     z-index: 0;
@@ -220,7 +245,8 @@
   .hero-image-wrap::after {
     content: '';
     position: absolute;
-    width: 490px; height: 490px;
+    width: 490px; 
+    height: 490px;
     border: 2px dashed rgba(107,158,107,0.35);
     border-radius: 50%;
     z-index: 2;
@@ -237,11 +263,8 @@
     z-index: 1;
     box-shadow: 0 24px 60px rgba(42,33,24,0.2);
     image-rendering: auto;
-    image-rendering: high-quality;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    filter: contrast(1.02) brightness(1.01);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .hero-tag {
@@ -419,9 +442,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--sage);
     box-shadow: 0 8px 20px rgba(42,33,24,0.08);
     border: 3px solid var(--sage-pale);
+    font-family: 'Playfair Display', serif;
   }
 
   .intersection-item h4 {
@@ -437,6 +463,79 @@
     color: var(--mid);
     font-weight: 400;
     text-align: center;
+  }
+
+  /* ---- PERSONAL SECTION ---- */
+  .personal-section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 2px solid var(--sage-pale);
+  }
+
+  .personal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .personal-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--deep);
+    margin-bottom: 1rem;
+  }
+
+  .personal-header h3 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .personal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .personal-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--mid);
+  }
+
+  .personal-text p {
+    margin-bottom: 1.25rem;
+  }
+
+  .personal-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .personal-photo {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(42,33,24,0.12);
+    transition: transform 0.3s;
+  }
+
+  .personal-photo:hover {
+    transform: translateY(-4px);
+  }
+
+  .personal-photo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .personal-photo.large {
+    grid-column: span 2;
+  }
+
+  .personal-photo.large img {
+    height: 280px;
   }
 
   /* ---- HOW I CONTRIBUTE ---- */
@@ -470,7 +569,7 @@
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
-}
+  }
 
   .contribute-card:hover {
     background: rgba(107,158,107,0.1);
@@ -752,26 +851,71 @@
     transform: translateY(0);
   }
 
+  /* ---- MOBILE RESPONSIVE ---- */
   @media (max-width: 900px) {
     nav { padding: 1rem 2rem; }
-    .nav-links { gap: 1.5rem; }
-    .hero { grid-template-columns: 1fr; padding: 6rem 2rem 3rem; gap: 3rem; }
+    
+    /* Hamburger menu for mobile */
+    .hamburger { display: flex; }
+    
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      right: -100%;
+      width: 250px;
+      height: calc(100vh - 70px);
+      background: var(--warm-white);
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+      transition: right 0.3s ease;
+    }
+    
+    .nav-links.active {
+      right: 0;
+    }
+    
+    .nav-links a {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(107,158,107,0.2);
+    }
+
+    .hero { 
+      grid-template-columns: 1fr; 
+      padding: 6rem 2rem 3rem; 
+      gap: 3rem; 
+    }
     .hero-text { padding-right: 0; }
     .hero-image-wrap { order: -1; }
-    .hero-photo { width: 300px; height: 300px; }   
-    .hero-image-wrap::before { width: 360px; height: 360px; }  
+    .hero-photo { width: 300px; height: 300px; }
+    .hero-image-wrap::before { width: 360px; height: 360px; }
     .hero-image-wrap::after { width: 340px; height: 340px; }
-    .hero-tag.tag-1 { bottom: 10px; left: 0px; }
-    .hero-tag.tag-2 { top: 20px; right: 0px; }
+    .hero-tag { 
+      font-size: 0.7rem; 
+      padding: 0.5rem 0.75rem;
+    }
+    .hero-tag.tag-1 { bottom: 20px; left: 10px; }
+    .hero-tag.tag-2 { top: 20px; right: 10px; }
+    
     .stats { grid-template-columns: 1fr 1fr; gap: 0; padding: 2rem; }
-    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem; }
+    .stat-num { font-size: 2rem; }
+    
     section { padding: 4rem 2rem; }
+    
     .contribute-grid { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
     .intersection-diagram { grid-template-columns: 1fr; gap: 1.5rem; }
     .intersection-diagram::before, .intersection-diagram::after { display: none; }
+    
+    .personal-content { grid-template-columns: 1fr; gap: 2rem; }
+    .personal-photos { grid-template-columns: 1fr; }
+    .personal-photo.large { grid-column: span 1; }
+    
     .testimonials-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
   }
 </style>
 </head>
@@ -780,12 +924,17 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Yoni Degani</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#contribute">Approach</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#contribute" onclick="closeMenu()">Approach</a></li>
+    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
+    <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
   </ul>
 </nav>
 
@@ -812,7 +961,7 @@
     </div>
   </div>
   <div class="hero-image-wrap">
-    <img class="hero-photo" src="https://i.postimg.cc/RVtQrNdT/Yoni-Degani-juneheadshot-bricrow-co-(print)-3.jpg" alt="Yoni Degani">
+    <img class="hero-photo" src="headshot.png" alt="Yoni Degani">
     <div class="hero-tag tag-1">
       <span class="dot"></span>
       15+ Years Program Leadership
@@ -864,21 +1013,50 @@
       <p class="intersection-title">My work typically sits at the intersection of:</p>
       <div class="intersection-diagram">
         <div class="intersection-item">
-          <div class="intersection-icon">🎯</div>
+          <div class="intersection-icon">PS</div>
           <h4>Product Strategy</h4>
         </div>
         <div class="intersection-item">
-          <div class="intersection-icon">🤝</div>
+          <div class="intersection-icon">OA</div>
           <h4>Organizational Alignment</h4>
         </div>
         <div class="intersection-item">
-          <div class="intersection-icon">⚙️</div>
+          <div class="intersection-icon">EE</div>
           <h4>Engineering Execution</h4>
         </div>
       </div>
     </div>
 
     <p class="about-closing">I'm most effective in complex, fast-paced environments where teams need someone who can create clarity, build structure, and deliver outcomes for executives.</p>
+
+    <!-- PERSONAL SECTION -->
+    <div class="personal-section reveal">
+      <div class="personal-header">
+        <h3>Beyond <em>the work</em></h3>
+      </div>
+      
+      <div class="personal-content">
+        <div class="personal-text">
+          <p>Outside of work, I love being with my wife Becca and toddler Levi — they are my world. Whether we're exploring new places, trying new foods, or just enjoying time together, family comes first.</p>
+          
+          <p>I'm passionate about live music, exploratory cooking, being in nature, traveling, and learning new cultures through their cuisine. I'm also a DIY enthusiast who loves tackling projects around the house.</p>
+          
+          <p>I play basketball, watch NFL and NBA, and recently got into Formula 1. I used to play a lot more sports, but my age is catching up to me — so now I'm more strategic about where I spend my energy!</p>
+        </div>
+        
+        <div class="personal-photos">
+          <div class="personal-photo large">
+            <img src="https://ucarecdn.com/0c4aa2df-afb2-4bee-b0a1-6e2946a57b20/" alt="Family photo">
+          </div>
+          <div class="personal-photo">
+            <img src="https://ucarecdn.com/4bbf0d06-8936-414f-b2c1-be67ecff1e9d/" alt="Poolside with baby and dog">
+          </div>
+          <div class="personal-photo">
+            <img src="https://ucarecdn.com/ab385ce5-9c76-4d95-a970-f25a0069a977/" alt="Walk in the fall">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -907,8 +1085,8 @@
 <!-- WHAT I DELIVER -->
 <section id="services">
   <div class="section-label">What I Deliver</div>
-  <h2 class="section-title"><em>Outcomes</em> that matter to your organization</h2>
-  <p class="section-intro">Whether you're launching a critical initiative, scaling product delivery, or transforming how work gets done — I am laser focused on achieving the desired outcomes and bring the structure and leadership to make it happen.</p>
+  <h2 class="section-title">Outcomes that matter to your <em>organization</em></h2>
+  <p class="section-intro">Whether you're launching a critical initiative, scaling product delivery, or transforming how work gets done — I bring the structure and leadership to make it happen.</p>
 
   <div class="services-grid">
     <div class="service-card reveal">
@@ -1086,6 +1264,21 @@
 </footer>
 
 <script>
+  // Hamburger menu toggle
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+
+  function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
