@@ -7,17 +7,10 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "settings"
-    label: "Site Content"
-    files:
-      - name: "beyond_the_work"
-        label: "Beyond the Work — Images & Text"
-        file: "_data/beyond-the-work.json"
-        fields:
-          - { label: "Section Text", name: "text", widget: "markdown" }
-          - label: "Photos"
-            name: "photos"
-            widget: "list"
-            fields:
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Alt Text", name: "alt", widget: "string" }
+  - name: "beyond_the_work"
+    label: "Beyond the Work"
+    folder: "content"
+    create: true
+    fields:
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Alt Text", name: "alt", widget: "string" }
