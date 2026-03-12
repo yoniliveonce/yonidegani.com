@@ -10,19 +10,19 @@
     {
       "src": "https://i.postimg.cc/vZ221Y8f/DSCF7205.jpg",
       "alt": "Family photo",
-      "position": "center center",
+      "position": "center top",
       "size": "large"
     },
     {
       "src": "https://i.postimg.cc/WpSR7PXS/IMG_0008.jpg",
       "alt": "Poolside with baby and dog",
-      "position": "center center",
+      "position": "center top",
       "size": "normal"
     },
     {
       "src": "https://i.postimg.cc/c1TqcNXR/IMG-3741.jpg",
       "alt": "Walk in the fall",
-      "position": "center top",
+      "position": "center 75%",
       "size": "normal"
     }
   ]
