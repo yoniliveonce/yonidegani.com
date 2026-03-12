@@ -122,12 +122,19 @@
   .personal-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .personal-text { font-size: 1rem; line-height: 1.8; color: var(--mid); }
   .personal-text p { margin-bottom: 1.25rem; }
-  .personal-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .personal-photos { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; }
   .personal-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(42,33,24,0.12); transition: transform 0.3s; }
   .personal-photo:hover { transform: translateY(-4px); }
-  .personal-photo img { width: 100%; height: 200px; object-fit: cover; display: block; }
-  .personal-photo.large { grid-column: span 2; }
-  .personal-photo.large img { height: 280px; }
+  .personal-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Photo 1: family — top left, taller to show faces */
+  .personal-photo:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .personal-photo:nth-child(1) img { height: 320px; }
+  /* Photo 2: pool — bottom left */
+  .personal-photo:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .personal-photo:nth-child(2) img { height: 220px; }
+  /* Photo 3: B&W — right column, spans both rows full height */
+  .personal-photo:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
+  .personal-photo:nth-child(3) img { height: 100%; min-height: 560px; }
 
   /* ---- CONTRIBUTE ---- */
   #contribute { background: var(--deep); padding: 5rem 4rem; text-align: center; }
@@ -225,7 +232,9 @@
     .intersection-diagram { grid-template-columns: 1fr; gap: 1.5rem; }
     .personal-content { grid-template-columns: 1fr; gap: 2rem; }
     .personal-photos { grid-template-columns: 1fr; }
-    .personal-photo.large { grid-column: span 1; }
+    .personal-photo:nth-child(1), .personal-photo:nth-child(2), .personal-photo:nth-child(3) { grid-column: 1; grid-row: auto; }
+    .personal-photo:nth-child(1) img, .personal-photo:nth-child(2) img { height: 250px; }
+    .personal-photo:nth-child(3) img { height: 300px; min-height: unset; }
     .testimonials-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
   }
