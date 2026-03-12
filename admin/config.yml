@@ -8,10 +8,179 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "beyond_the_work"
-    label: "Beyond the Work"
-    folder: "content"
-    create: true
-    fields:
-      - { label: "Photo", name: "image", widget: "image" }
-      - { label: "Alt Text", name: "alt", widget: "string" }
+
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - name: "hero"
+        label: "Hero Section"
+        file: "_data/hero.json"
+        fields:
+          - { label: "Eyebrow Text", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Heading Italic Word", name: "heading_em", widget: "string" }
+          - { label: "Description Line 1", name: "description_1", widget: "string" }
+          - { label: "Description Line 2", name: "description_2", widget: "string" }
+          - label: "Certifications"
+            name: "certifications"
+            widget: "list"
+            field: { label: "Certification", name: "item", widget: "string" }
+          - { label: "Primary Button Text", name: "cta_primary", widget: "string" }
+          - { label: "Secondary Button Text", name: "cta_secondary", widget: "string" }
+          - { label: "Profile Photo", name: "photo", widget: "image" }
+          - label: "Photo Position"
+            name: "photo_position"
+            widget: "select"
+            options:
+              - { label: "Center Center", value: "center center" }
+              - { label: "Center Top (face at top)", value: "center top" }
+              - { label: "Center Bottom", value: "center bottom" }
+              - { label: "Left Center", value: "left center" }
+              - { label: "Right Center", value: "right center" }
+              - { label: "25% from top", value: "center 25%" }
+              - { label: "33% from top", value: "center 33%" }
+              - { label: "40% from top", value: "center 40%" }
+              - { label: "60% from top", value: "center 60%" }
+              - { label: "75% from top", value: "center 75%" }
+          - { label: "Tag 1 Text (bottom left)", name: "tag_1", widget: "string" }
+          - { label: "Tag 2 Text (top right)", name: "tag_2", widget: "string" }
+
+  - name: "stats"
+    label: "Stats & Industries"
+    files:
+      - name: "stats"
+        label: "Stats & Industries"
+        file: "_data/stats.json"
+        fields:
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - { label: "Industry Section Title", name: "industry_title", widget: "string" }
+          - { label: "Industries Text", name: "industries", widget: "string" }
+
+  - name: "about"
+    label: "About & Beyond the Work"
+    files:
+      - name: "about"
+        label: "About & Beyond the Work"
+        file: "_data/about.json"
+        fields:
+          - { label: "About Paragraph 1", name: "paragraph_1", widget: "text" }
+          - { label: "About Paragraph 2", name: "paragraph_2", widget: "text" }
+          - { label: "Closing Line", name: "closing", widget: "text" }
+          - { label: "Beyond the Work — Paragraph 1", name: "beyond_p1", widget: "text" }
+          - { label: "Beyond the Work — Paragraph 2", name: "beyond_p2", widget: "text" }
+          - { label: "Beyond the Work — Paragraph 3", name: "beyond_p3", widget: "text" }
+          - label: "Beyond the Work — Photos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Image Position (crop focus)"
+                name: "position"
+                widget: "select"
+                options:
+                  - { label: "Center Center (default)", value: "center center" }
+                  - { label: "Center Top (faces/heads)", value: "center top" }
+                  - { label: "Center Bottom", value: "center bottom" }
+                  - { label: "Left Center", value: "left center" }
+                  - { label: "Right Center", value: "right center" }
+                  - { label: "25% from top", value: "center 25%" }
+                  - { label: "33% from top", value: "center 33%" }
+                  - { label: "40% from top", value: "center 40%" }
+                  - { label: "60% from top", value: "center 60%" }
+                  - { label: "75% from top", value: "center 75%" }
+              - label: "Size"
+                name: "size"
+                widget: "select"
+                options:
+                  - { label: "Large (full width)", value: "large" }
+                  - { label: "Normal (half width)", value: "normal" }
+
+  - name: "contribute"
+    label: "How I Contribute"
+    files:
+      - name: "contribute"
+        label: "How I Contribute"
+        file: "_data/contribute.json"
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string" }
+          - label: "Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Problem Statement", name: "problem", widget: "text" }
+              - { label: "Your Solution", name: "solution", widget: "text" }
+
+  - name: "services"
+    label: "What I Deliver"
+    files:
+      - name: "services"
+        label: "What I Deliver"
+        file: "_data/services.json"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Intro", name: "intro", widget: "text" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "experience"
+    label: "Experience"
+    files:
+      - name: "experience"
+        label: "Experience"
+        file: "_data/experience.json"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Intro", name: "intro", widget: "text" }
+          - label: "Jobs"
+            name: "jobs"
+            widget: "list"
+            fields:
+              - { label: "Date Range", name: "date", widget: "string" }
+              - { label: "Company Name", name: "company", widget: "string" }
+              - { label: "Role & Location", name: "role", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "_data/testimonials.json"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Intro", name: "intro", widget: "text" }
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Quote", name: "text", widget: "text" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title & Company", name: "title", widget: "string" }
+              - { label: "Initials (2 letters)", name: "initials", widget: "string" }
+              - { label: "Avatar Color (hex)", name: "color", widget: "string" }
+
+  - name: "contact"
+    label: "Contact"
+    files:
+      - name: "contact"
+        label: "Contact"
+        file: "_data/contact.json"
+        fields:
+          - { label: "Section Title", name: "title", widget: "string" }
+          - { label: "Section Intro", name: "intro", widget: "text" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
