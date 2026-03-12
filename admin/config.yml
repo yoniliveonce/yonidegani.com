@@ -2,7 +2,7 @@ backend:
   name: github
   repo: yoniliveonce/yonidegani.com
   branch: main
-  site_id: 8184e2ec-128a-4723-9a5b-367ed11ba1c4
+  base_url: https://decapcms.org
 
 media_folder: "images"
 public_folder: "/images"
