@@ -1,0 +1,36 @@
+{
+  "title": "Where I've delivered results",
+  "intro": "From creative agencies to Fortune 500 to startups — I've led complex programs in fast-moving environments where delivery matters.",
+  "jobs": [
+    {
+      "date": "Aug 2023 – Present",
+      "company": "North Highland (formerly The Bridge)",
+      "role": "Senior Manager, Acceleration · Dallas, TX",
+      "description": "Full-service strategy & technology consultancy delivering digital transformation across Data & AI, Experience, and Product Development. Led AI/ML implementations including decision engines and dynamic dashboards. Championed 4 direct reports to successful promotions. Founded company's first Agile Community of Practice."
+    },
+    {
+      "date": "Feb 2020 – Apr 2023",
+      "company": "BlueOwl, LLC",
+      "role": "Sr. Manager, Agile Delivery / Sr. Technical Program Manager · San Francisco, CA",
+      "description": "Data science-driven auto insurance startup (State Farm-sponsored). Led enterprise agile transformation for 150+ individuals — transitioned from siloed teams to cross-functional squads, reducing cycle time 30% and improving predictability 20%. Established monthly portfolio reviews and pulse surveys, improving employee experience 25%."
+    },
+    {
+      "date": "Jan 2016 – Feb 2020",
+      "company": "Gap Inc.",
+      "role": "Agile Coach / Program Manager · San Francisco, CA",
+      "description": "Supported 30+ teams delivering global inventory management and omni-channel solutions. Led InStock iPad app (~$60M in increased global revenue), Buy Online/Pick Up In Store features, and Promotion Generation Engine. Founded and facilitated Gap's Agile Community of Practice, growing from 5 to 20 participants."
+    },
+    {
+      "date": "Aug 2012 – Feb 2015",
+      "company": "AKQA",
+      "role": "Sr. Agile Project Manager / Scrum Master · San Francisco, CA",
+      "description": "Championed agile processes for Audi of America's $10MM/year continuous development pipeline (30+ global engineers). Product Manager for Audi dealership iPad apps ($6MM/yr, 97% adoption). Led site redesign for audiusa.com including Car Configurator. Additional clients: Activision, Salesforce, Safeway."
+    },
+    {
+      "date": "May 2010 – Aug 2012",
+      "company": "JWT (J. Walter Thompson)",
+      "role": "Digital Project Manager / Scrum Master · Dallas, TX",
+      "description": "Led full redesign of Marines.com ($4M budget, launched Jan 2012) and implementation of new CMS platform ($600K). Managed cross-functional teams of 3–30 individuals across two geographical offices using agile methodologies. Consolidated officer.marines.com into redesigned marines.com platform."
+    }
+  ]
+}

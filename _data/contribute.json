@@ -1,0 +1,20 @@
+{
+  "heading": "How I Contribute",
+  "cards": [
+    {
+      "title": "When critical initiatives need strong program leadership",
+      "problem": "Large initiatives fail when no one owns the full system.",
+      "solution": "I lead cross-functional programs and ensure critical initiatives deliver the outcomes desired — with all stakeholders along for the ride."
+    },
+    {
+      "title": "When product strategy needs to become engineering reality",
+      "problem": "Strategy often breaks down between executives, product, and development.",
+      "solution": "I translate vision into execution so teams can move efficiently in the same direction."
+    },
+    {
+      "title": "When delivery becomes chaotic",
+      "problem": "Roadmaps stall, priorities conflict, and teams lose engagement.",
+      "solution": "I create clarity around what matters most and how to execute it fast."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "paragraph_1": "I'm a Technical Program Manager, Product Delivery Leader and Agile practitioner with 15+ years of experience helping organizations deliver complex digital solutions.",
+  "paragraph_2": "Over the course of my career I've worked with startups, Fortune 500 brands and enterprise technology organizations where I've improved how products are planned, built and delivered.",
+  "closing": "I'm most effective in complex, fast-paced environments where teams need someone who can create clarity, build structure, and deliver outcomes for executives.",
+  "beyond_heading": "Beyond the work",
+  "beyond_p1": "Outside of work, I love being with my wife Becca, toddler Levi and 14 year old pup, Herschel - they are my world. Whether we're exploring new places, trying new foods, or just enjoying time together, family comes first.",
+  "beyond_p2": "I'm also in to live music, being in nature, traveling and learning new cultures through their cuisine, and DIY everything.",
+  "beyond_p3": "I play basketball, watch NFL and NBA, and recently got into Formula 1. I used to play a lot more sports but my body seems to be catching up to my age...so now I'm more strategic with my spare time!",
+  "photos": [
+    {
+      "src": "https://i.postimg.cc/vZ221Y8f/DSCF7205.jpg",
+      "alt": "Family photo",
+      "position": "center center",
+      "size": "large"
+    },
+    {
+      "src": "https://i.postimg.cc/WpSR7PXS/IMG_0008.jpg",
+      "alt": "Poolside with baby and dog",
+      "position": "center center",
+      "size": "normal"
+    },
+    {
+      "src": "https://i.postimg.cc/c1TqcNXR/IMG-3741.jpg",
+      "alt": "Walk in the fall",
+      "position": "center top",
+      "size": "normal"
+    }
+  ]
+}

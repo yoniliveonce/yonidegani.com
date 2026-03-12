@@ -1,0 +1,48 @@
+{
+  "title": "Voices from executives and teams I've served",
+  "intro": "These are the words of colleagues, direct reports, and leaders who've trusted me with their most critical initiatives.",
+  "testimonials": [
+    {
+      "text": "Yoni is a powerhouse of a project manager — thorough, on top of things, organized, inclusive, and truly fantastic to work with. He is trustworthy and sees things through until the very end. His ability to move things forward was tremendous.",
+      "name": "Kristin Goto",
+      "title": "VP, Managing Director · AKQA",
+      "initials": "KG",
+      "color": "#5C8050"
+    },
+    {
+      "text": "Yoni managed to build the best communication and project management framework I have ever seen for our team — instrumental in helping engineers deliver on time. Any team would be lucky to have him.",
+      "name": "Andrey R.",
+      "title": "Sr. Data Engineer · BlueOwl, LLC",
+      "initials": "AR",
+      "color": "#C4694A"
+    },
+    {
+      "text": "Yoni is an excellent facilitator who communicates with empathy and has a rare ability to lead a divergent group through conflict and into alignment. He was an invaluable partner — a hybrid agile coach and process developer who helped us build our backlog and form working agreements.",
+      "name": "Eric Shamow",
+      "title": "Reliability and Engineering Leadership",
+      "initials": "ES",
+      "color": "#C4694A"
+    },
+    {
+      "text": "Yoni was by far the most effective Scrum Master I worked with in my career. He has a knack for knowing how to push the team in an effective way by understanding what inspires them and what processes don't work. I'd highly recommend Yoni.",
+      "name": "William Earls",
+      "title": "Senior Product Leader",
+      "initials": "WE",
+      "color": "#8B5A7A"
+    },
+    {
+      "text": "Yoni is incredibly reliable and skilled at brainstorming and leading teams. His ability to creatively guide discussions and bring people to meaningful conclusions is unmatched. I would work with him again in a heartbeat.",
+      "name": "Colton Weeks",
+      "title": "Growth Strategist",
+      "initials": "CW",
+      "color": "#5A7A8B"
+    },
+    {
+      "text": "Yoni is a strong technical project lead with skills in complex platform delivery and small project turnaround. His experience in project fundamentals, agile practices, and reliability in tough situations makes him invaluable.",
+      "name": "Andrew Dunbar",
+      "title": "MENA Lead · Infosys Experience",
+      "initials": "AD",
+      "color": "#5C8050"
+    }
+  ]
+}

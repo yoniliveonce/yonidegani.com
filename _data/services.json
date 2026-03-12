@@ -1,0 +1,26 @@
+{
+  "title": "Outcomes that matter to your organization",
+  "intro": "Whether you're launching a critical initiative, scaling product delivery, or transforming how work gets done — I bring the structure and leadership to make it happen.",
+  "services": [
+    {
+      "icon": "🗺️",
+      "title": "Complex Program Leadership",
+      "description": "I orchestrate multi-team programs with clear roadmaps, outcome-driven planning, and rigorous accountability. From portfolio strategy to sprint execution, I ensure leadership has visibility and teams have clarity — leveraging modern tools (Jira, Confluence, Miro, EazyBI) and automation wherever possible to streamline delivery."
+    },
+    {
+      "icon": "📊",
+      "title": "Product Strategy & Roadmapping",
+      "description": "I translate business objectives into executable product roadmaps. Through OKR development, portfolio reviews, and stakeholder alignment sessions, I create shared understanding between executives, product, and engineering — so everyone moves in the same direction."
+    },
+    {
+      "icon": "🚀",
+      "title": "Agile Transformation & Process Design",
+      "description": "I lead enterprise agile transformations that stick — transitioning siloed teams into cross-functional squads with sustainable frameworks. From SAFe implementations to custom Scrum/Kanban hybrids, I design processes around your people and culture, not the other way around."
+    },
+    {
+      "icon": "🌱",
+      "title": "Team Leadership & Coaching",
+      "description": "I build high-performing teams through hands-on coaching for Scrum Masters, Product Owners, and engineering leads. By establishing trust, psychological safety, and clear communication frameworks, I create environments where great work happens naturally."
+    }
+  ]
+}
