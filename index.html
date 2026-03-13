@@ -233,8 +233,7 @@
     .personal-content { grid-template-columns: 1fr; gap: 2rem; }
     .personal-photos { grid-template-columns: 1fr; }
     .personal-photo:nth-child(1), .personal-photo:nth-child(2), .personal-photo:nth-child(3) { grid-column: 1; grid-row: auto; }
-    .personal-photo:nth-child(1) img, .personal-photo:nth-child(2) img { height: 250px; }
-    .personal-photo:nth-child(3) img { height: 300px; min-height: unset; }
+    .personal-photo:nth-child(1) img, .personal-photo:nth-child(2) img, .personal-photo:nth-child(3) img { height: auto; min-height: unset; object-fit: contain; max-width: 100%; }
     .testimonials-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 2rem; }
   }
