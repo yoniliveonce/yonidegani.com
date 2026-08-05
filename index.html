@@ -165,8 +165,10 @@
   #experience { background: var(--warm-white); }
   .timeline { position: relative; max-width: 900px; margin: 0 auto; }
   .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--sage), rgba(107,158,107,0.1)); }
-  .timeline-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; }
-  .timeline-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--sage); border: 2px solid var(--warm-white); box-shadow: 0 0 0 3px rgba(107,158,107,0.25); }
+  .timeline-item { padding-left: 2.5rem; margin-bottom: 3rem; position: relative; border-radius: 12px; transition: transform 0.3s, background 0.3s; }
+  .timeline-item:hover { transform: translateX(6px); background: rgba(107,158,107,0.06); }
+  .timeline-item::before { content: ''; position: absolute; left: -5px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--sage); border: 2px solid var(--warm-white); box-shadow: 0 0 0 3px rgba(107,158,107,0.25); transition: transform 0.3s, box-shadow 0.3s; }
+  .timeline-item:hover::before { transform: scale(1.3); box-shadow: 0 0 0 5px rgba(107,158,107,0.35); }
   .timeline-date { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; color: var(--sage); text-transform: uppercase; margin-bottom: 0.4rem; }
   .timeline-company { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--deep); margin-bottom: 0.25rem; }
   .timeline-role { font-size: 0.9rem; font-weight: 500; color: var(--mid); margin-bottom: 0.75rem; }
@@ -208,6 +210,17 @@
   @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- ACCESSIBILITY: respect reduced-motion preference ---- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-delay: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 
   /* ---- MOBILE ---- */
   @media (max-width: 900px) {
@@ -310,16 +323,47 @@
     const d = await loadJSON('_data/stats.json');
     document.getElementById('stats-section').innerHTML = `
       <div class="stats">
-        ${d.stats.map(s => `
-          <div class="stat-item">
-            <span class="stat-num">${s.number}</span>
+        ${d.stats.map(s => {
+          const match = s.number.match(/^([^0-9]*)([\d,]+)(.*)$/);
+          const prefix = match ? match[1] : '';
+          const target = match ? match[2].replace(/,/g, '') : '';
+          const suffix = match ? match[3] : '';
+          const startText = match ? `${prefix}0${suffix}` : s.number;
+          return `
+          <div class="stat-item reveal">
+            <span class="stat-num" data-prefix="${prefix}" data-target="${target}" data-suffix="${suffix}">${startText}</span>
             <span class="stat-label">${s.label}</span>
-          </div>`).join('')}
+          </div>`;
+        }).join('')}
       </div>
-      <div class="trusted-by">
+      <div class="trusted-by reveal">
         <h2>${d.industry_title}</h2>
         <p class="industries">${d.industries}</p>
       </div>`;
+  }
+
+  // ---- COUNTER ANIMATION ----
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target)) return;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    if (prefersReducedMotion) {
+      el.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
+      return;
+    }
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = Math.round(eased * target);
+      el.textContent = `${prefix}${current.toLocaleString()}${suffix}`;
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
+    }
+    requestAnimationFrame(tick);
   }
 
   // ---- ABOUT ----
@@ -334,11 +378,11 @@
       <section id="about">
         <div class="section-label">About Me</div>
         <div class="about-content">
-          <div class="about-text">
+          <div class="about-text reveal">
             <p>${d.paragraph_1}</p>
             <p>${d.paragraph_2}</p>
           </div>
-          <div class="intersection-wrapper">
+          <div class="intersection-wrapper reveal">
             <p class="intersection-title">My work typically sits at the intersection of:</p>
           <div class="intersection-diagram">
 
@@ -464,22 +508,22 @@
         <h2 class="section-title">${d.title}</h2>
         <p class="section-intro">${d.intro}</p>
         <div class="contact-options">
-          <a href="mailto:${d.email}" class="contact-card">
+          <a href="mailto:${d.email}" class="contact-card reveal">
             <span class="icon">✉️</span>
             <span class="label">Email</span>
             <span class="value">${d.email}</span>
           </a>
-          <a href="tel:${d.phone}" class="contact-card">
+          <a href="tel:${d.phone}" class="contact-card reveal">
             <span class="icon">📞</span>
             <span class="label">Phone</span>
             <span class="value">${d.phone}</span>
           </a>
-          <a href="${d.linkedin}" target="_blank" class="contact-card">
+          <a href="${d.linkedin}" target="_blank" class="contact-card reveal">
             <span class="icon">💼</span>
             <span class="label">LinkedIn</span>
             <span class="value">linkedin.com/in/yoni-degani</span>
           </a>
-          <a href="#" class="contact-card">
+          <a href="#" class="contact-card reveal">
             <span class="icon">📍</span>
             <span class="label">Location</span>
             <span class="value">${d.location}</span>
@@ -506,7 +550,11 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+            // If this reveal contains stat counters, animate them once visible
+            entry.target.querySelectorAll('.stat-num[data-target]').forEach(animateCounter);
+          }, i * 80);
           observer.unobserve(entry.target);
         }
       });
